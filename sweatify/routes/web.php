@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', fn() => view('welcome'));
 
 // Autentikált, email-ellenőrzött felhasználók
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth',])->group(function () {
 
     // Főoldal és dashboard
     Route::get('/home', fn() => view('home'))->name('home');
