@@ -19,7 +19,7 @@ class WorkoutController extends Controller
         $offset = $request->query('offset', 0);
 
         $workouts = Workout::orderBy('id', 'desc')
-        ->offset($offset)
+            ->offset($offset)
             ->limit($limit)
             ->get();
 
@@ -28,8 +28,8 @@ class WorkoutController extends Controller
         return response()->json([
             'workouts' => $workouts,
             'total' => $total,
-            'limit' => (int) $limit,
-            'offset' => (int) $offset
+            'limit' => (int)$limit,
+            'offset' => (int)$offset
         ]);
     }
 
@@ -66,7 +66,7 @@ class WorkoutController extends Controller
             'name' => $workout->name,
             'type' => $workout->type,
             'description' => $workout->description,
-            'exercises' => $exercises, // Include exercises with their names
+            'exercises' => $exercises,
             'created_at' => $workout->created_at,
             'updated_at' => $workout->updated_at,
             'is_custom' => $workout->is_custom
@@ -100,18 +100,31 @@ class WorkoutController extends Controller
         }
     }
 
-    public function destroy($id): JsonResponse
+    public function showPage($id)
     {
         $workout = Workout::findOrFail($id);
 
+        $exercises = Exercise::whereIn('id', $workout->exercise_ids)->get(['id', 'name']);
+
+        return view('workout.show', [
+            'workout' => $workout,
+            'exercises' => $exercises
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $workout = Workout::findOrFail($id);
 
         if ($workout->is_custom != 1) {
-            return response()->json(['error' => 'Only custom workouts can be deleted'], 403);
+
+            return redirect()->route('home')->with('error', 'Only custom workouts can be deleted!');
         }
 
         $workout->delete();
 
-        return response()->json(['message' => 'Workout deleted successfully']);
+        // Flash success üzenet
+        return redirect()->route('home')->with('success', 'Workout deleted successfully!');
     }
 
 

@@ -10,39 +10,28 @@
         <!-- User Data and Favorite Exercises Graph in a Table -->
         <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg mt-8">
             <div class="p-6 text-gray-900 dark:text-gray-100">
-                <table class="w-full max-w-[400px]">
-                    <thead>
-                    <tr>
-                        <th class="px-4 py-2 text-left">User Information</th>
-                        <th class="px-4 py-2 text-left">Favorite Exercises</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <!-- Left Column: User Data -->
-                        <td class="px-4 py-2">
-                            <h3 class="text-xl font-semibold">User Information</h3>
-                            <div class="grid grid-cols-1 gap-4 mt-4">
-                                <div>
-                                    <p><strong>Weight:</strong> {{Auth::user()->weight}} kg</p>
-                                    <p><strong>BMI:</strong> {{ Auth::user()->bmi ?? 'N/A' }}</p>
-                                </div>
-                                <div>
-                                    <p><strong>Height:</strong> {{ Auth::user()->height }} cm</p>
-                                    <p><strong>Age:</strong> {{ Auth::user()->age }} years</p>
-                                </div>
+                <div class="flex flex-col md:flex-row gap-8 md:items-center md:justify-between">
+                    <!-- Bal oldalon: User infó -->
+                    <div class="md:w-1/2 flex-shrink-0">
+                        <h3 class="text-xl font-semibold mb-2">User Information</h3>
+                        <div class="grid grid-cols-1 gap-4 mt-4">
+                            <div>
+                                <p><strong>Weight:</strong> {{ Auth::user()->weight }} kg</p>
+                                <p><strong>BMI:</strong> {{ Auth::user()->bmi ?? 'N/A' }}</p>
                             </div>
-                        </td>
-
-                        <!-- Right Column: Favorite Exercises Graph -->
-                        <td class="px-4 py-2" style="max-width: 250px;">
-                            <div class="mt-4">
-                                <canvas id="favoriteExercisesChart"></canvas>
+                            <div>
+                                <p><strong>Height:</strong> {{ Auth::user()->height }} cm</p>
+                                <p><strong>Age:</strong> {{ Auth::user()->age }} years</p>
                             </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                        </div>
+                    </div>
+                    <!-- Jobb oldalon: Chart középre igazítva -->
+                    <div class="md:w-1/2 flex flex-col items-center justify-center">
+                        <div class="w-[220px] sm:w-[260px] md:w-[320px] lg:w-[400px] flex-shrink-0">
+                            <canvas id="favoriteExercisesChart" width="200" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -57,7 +46,6 @@
                         <th class="px-4 py-2 text-left text-center">Workout</th>
                         <th class="px-4 py-2 text-left text-center">Date</th>
                         <th class="px-4 py-2 text-left text-center" >Exercises</th>
-                        <th class="px-4 py-2 text-left text-center">Duration (mins)</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -112,12 +100,16 @@
     <!-- Favorite Exercises Chart -->
     <script>
         const favoriteCtx = document.getElementById('favoriteExercisesChart').getContext('2d');
+
+        const labels = @json($exerciseLabels);
+        const data = @json($exerciseCounts);
+
         const favoriteExercisesChart = new Chart(favoriteCtx, {
             type: 'pie',
             data: {
-                labels: ['Push-ups', 'Squats', 'Running', 'Bicep Curls', 'Yoga'],
+                labels: labels,
                 datasets: [{
-                    data: [20, 15, 25, 10, 30], // Replace with real data later
+                    data: data,
                     backgroundColor: [
                         '#4CAF50', '#FF9800', '#2196F3', '#FF5722', '#9C27B0'
                     ],
@@ -133,9 +125,10 @@
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            label: function(context) {
+                                return context.raw + ' db';
                             }
+
                         }
                     }
                 }
@@ -175,7 +168,7 @@
                         `).join('')}
                     </div>
                 </td>
-                <td class="px-4 py-4">${entry.duration}</td>
+
             `;
                     workoutHistoryTable.appendChild(workoutRow);
                 });

@@ -12,7 +12,7 @@ class WorkoutExerciseHistory extends Model
         'workout_history_id',
         'exercise_id',
         'reps',
-       ' weight',
+        'weight',
     ];
     public function workoutHistory(){
         return $this->belongsTo(WorkoutHistory::class);

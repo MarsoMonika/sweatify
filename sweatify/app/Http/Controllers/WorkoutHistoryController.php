@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutExerciseHistory;
 use App\Models\WorkoutHistory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkoutHistoryController extends Controller
 {
     public function store(Request $request)
     {
         $request->validate([
-            'workout_id' => 'required',
+            'workout_id' => 'required|exists:workouts,id',
             'exercise_data' => 'required | array',
-            'exercise_data.*.exercise_name' => 'required|string|exists:exercises,name',
+            'exercise_data.*.exercise_id' => 'required|integer|exists:exercises,id',
             'exercise_data.*.reps' => 'required|integer|min:1',
             'exercise_data.*.weight' => 'required|numeric|min:0',
         ]);
@@ -22,22 +23,16 @@ class WorkoutHistoryController extends Controller
             'workout_id' => $request->workout_id,
         ]);
         foreach ($request->exercise_data as $exercise) {
-
-            $exerciseModel = \App\Models\Exercise::where('name', $exercise['exercise_name'])->first();
-            if (!$exerciseModel) {
-                return response()->json(['error' => "Exercise '{$exercise['exercise_name']}' not found"], 400);
-            }
-
             WorkoutExerciseHistory::create([
                 'workout_history_id' => $workoutHistory->id,
-                'exercise_id' => $exerciseModel->id,
+                'exercise_id' => $exercise['exercise_id'],
                 'reps' => $exercise['reps'],
                 'weight' => $exercise['weight'],
-                'extra_data' => json_encode($exercise['extra_data'] ?? null),
+                'extra_data' => $exercise['extra_data'] ?? [],
             ]);
         }
 
-        return response()->json(['message' => 'Workout completed successfully!']);
+        return redirect()->route('dashboard')->with('success', 'Workout completed successfully!');
     }
 
     public function show($userId)
@@ -67,7 +62,7 @@ class WorkoutHistoryController extends Controller
                 'workout_name' => $history->workout->name, // Workout name
                 'date' => $history->created_at->format('M d, Y'), // Date formatted
                 'exercise_names' => $exercises, // List of exercises with details
-                'duration' => $history->duration ?? 'N/A' // Duration
+
             ];
         });
 

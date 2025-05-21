@@ -70,6 +70,33 @@ For any inquiries or support, reach out:
 
 ---
 ### Additional Documentation
-For API endpoints and in-depth product details, refer to the **[Product Design Document (PDD)](docs/PDD.md)**.
+For API endpoints and in-depth product details, refer to the **[Product Design Document (PDD)](sweatify/docs/PDD.md)**.
 
+## Screenshots
 
+### Welcome Page
+![Welcome](sweatify/docs/screenshots/welcome.png)
+
+### Login Page
+![Login](sweatify/docs/screenshots/login.png)
+
+### Registration Page
+![Register](sweatify/docs/screenshots/register.png)
+
+### Dashboard
+![Dashboard](sweatify/docs/screenshots/dashboard.png)
+
+### Home Page
+![Home](sweatify/docs/screenshots/home.png)
+
+### Create Custom Workout
+![Create Custom Workout](sweatify/docs/screenshots/createCustomWorkout.png)
+
+### Filter Exercises by Target
+![Filtered By Target](sweatify/docs/screenshots/filteredByTarget.png)
+
+### Edit Profile
+![Profile Edit](sweatify/docs/screenshots/profileEdit.png)
+
+### Password Reset & Delete
+![Password Reset/Delete](sweatify/docs/screenshots/passwordResetDelete.png)

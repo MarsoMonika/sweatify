@@ -1,80 +1,51 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\WorkoutHistoryController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', fn() => view('welcome'));
+
+// Autentikált, email-ellenőrzött felhasználók
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    // Főoldal és dashboard
+    Route::get('/home', fn() => view('home'))->name('home');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Profil menü
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+
+    // Exercise oldalak
+    Route::prefix('exercises')->group(function () {
+        Route::get('/', fn() => view('exercises'))->name('exercises');
+        Route::get('/id/{id}', fn($id) => view('exercise.show', ['id' => $id]))->name('exercise.show');
+        Route::get('/name/{name}', fn($name) => view('exercise'))->name('exercises.name');
+        Route::get('/bodyPartList', fn() => view('exercise.bodyPartList'))->name('exercises.bodyPartList');
+        Route::get('/body-part/{bodyPart}', fn($bodyPart) => view('exercise.bodypart'))->name('exercise.bodypart');
+        Route::get('/equipmentList', fn() => view('exercise.equipmentList'))->name('exercises.equipmentList');
+        Route::get('/equipment/{equipment}', fn($equipment) => view('exercise.equipment'))->name('exercises.equipment');
+        Route::get('/targetList', fn() => view('exercise.targetList'))->name('exercises.targetList');
+        Route::get('/target/{target}', fn($target) => view('exercise.target'))->name('exercises.target');
+    });
+
+    // Workout oldalak
+    Route::prefix('workouts')->group(function () {
+        Route::get('/create', fn() => view('workout.create'))->name('workout.create');
+        Route::get('/update/id/{id}', fn($id) => view('workout.update', ['id' => $id]))->name('workout.update');
+        Route::get('/id/{id}', [WorkoutController::class, 'showPage'])->name('workouts.show');
+        Route::delete('/delete/{id}', [WorkoutController::class, 'destroy'])->name('workouts.destroy');
+    });
+    Route::post('/history', [WorkoutHistoryController::class, 'store'])->middleware('auth')->name('history.store');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
-
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-// Exercise Views
-Route::get('/exercises', function () {
-    return view('exercises');
-})->middleware(['auth', 'verified'])->name('exercises');
-
-Route::get('/exercises/id/{id}', function () {
-    return view('exercise.show');
-})->middleware(['auth', 'verified'])->name('exercise.show');
-
-Route::get('/exercises/name/{name}', function () {
-    return view('exercise');
-})->middleware(['auth', 'verified'])->name('exercises.name');
-
-
-Route::get('/exercises/bodyPartList', function () {
-    return view('exercise.bodyPartList');
-})->middleware(['auth', 'verified'])->name('exercises.bodyPartList');
-
-Route::get('/exercises/body-part/{bodyPart}', function () {
-    return view('exercise.bodypart');
-})->middleware(['auth', 'verified'])->name('exercise.bodypart');
-
-
-
-Route::get('/exercises/equipmentList', function () {
-    return view('exercise.equipmentList');
-})->middleware(['auth', 'verified'])->name('exercises.equipmentList');
-
-Route::get('/exercises/equipment/{equipment}', function () {
-    return view('exercise.equipment');
-})->middleware(['auth', 'verified'])->name('exercises.equipment');
-
-
-
-Route::get('/exercises/targetList', function () {
-    return view('exercise.targetList');
-})->middleware(['auth', 'verified'])->name('exercises.targetList');
-
-Route::get('/exercises/target/{target}', function () {
-    return view('exercise.target');
-})->middleware(['auth', 'verified'])->name('exercises.target');
-
-// Workout Views
-Route::get('/workouts/id/{id}', function () {
-    return view('workout.show');
-})->middleware(['auth', 'verified'])->name('workout.show');
-
-Route::get('/workouts/create', function () {
-    return view('workout.create');
-})->middleware(['auth', 'verified'])->name('workout.create');
-
-Route::get('/workouts/update/id/{id}', function () {
-    return view('workout.update');
-})->middleware(['auth', 'verified'])->name('workout.update');
+require __DIR__.'/auth.php';
 
 require __DIR__.'/auth.php';
