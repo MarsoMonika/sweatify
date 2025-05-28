@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/sweatify/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/sweatify/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/sweatify/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/sweatify/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/sweatify/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/sweatify/tests/Unit" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/carbonphp/carbon-doctrine-types" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/dflydev/dot-access-data" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/dragonmantank/cron-expression" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/fruitcake/php-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/guzzlehttp/uri-template" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/pail" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/pint" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/prompts" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/sail" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/serializable-closure" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/config" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/flysystem-local" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/uri" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/mockery/mockery" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/nette/schema" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/nette/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/nunomaduro/termwind" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/cli-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/complexity" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/staabm/side-effects-detector" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/mailer" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-php83" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/polyfill-uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/uid" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/breeze" />
+      <excludeFolder url="file://$MODULE_DIR$/sweatify/vendor/laravel/sanctum" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
